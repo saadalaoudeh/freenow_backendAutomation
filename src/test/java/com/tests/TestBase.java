@@ -18,6 +18,7 @@ public class TestBase {
      */
     public static String BASEURI = new ReadProperties().get("base_URI");
 
+
     public RequestSpecification spec() {
         RequestSpecification spec = given().log().all()
                 .relaxedHTTPSValidation()

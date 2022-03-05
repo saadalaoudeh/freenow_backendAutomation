@@ -3,6 +3,7 @@ package com.tests;
 import com.apiServices.PostService;
 import com.apiServices.SearchUserService;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +21,7 @@ import org.junit.jupiter.api.Test;
  *
  */
 
-public class d_PostsUserIdTest {
+public class PostsUserTest {
     SearchUserService callUser = new SearchUserService();
     PostService postService=new PostService();
     Response response;
@@ -28,7 +29,7 @@ public class d_PostsUserIdTest {
     @DisplayName(" Post UserId Test")
     @Test
     @Tag("smoke")
-    public void createPostTest() {
+    public void getPostsTest() {
         response=callUser.SearchUserName("Samantha");
         int IdOfSearchUser= SearchUserService.id;
         System.out.println("IdOfSearchUser: "+IdOfSearchUser);
@@ -36,11 +37,7 @@ public class d_PostsUserIdTest {
         int userIdOfSearchUser=PostService.userId;
         response= postService.createPostWithUserId(userIdOfSearchUser);
         Assertions.assertTrue(response.statusCode() == 200);
-
-
-
+        //Assert.assertEquals(userIdOfSearchUser,response.jsonPath().getInt("id[0]"));
 
     }
-
-
 }

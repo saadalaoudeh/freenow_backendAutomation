@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * then verify that Samantha contains in response body.
  */
 
-public class a_SearchUserNameTest {
+public class SearchUserNameTest {
 
     SearchUserService callUser = new SearchUserService();
     Response response;

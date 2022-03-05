@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class e_PostsUserIdCommentsTest {
+public class PostsUserIdCommentsTest {
 
     SearchUserService callUser = new SearchUserService();
     PostService postService=new PostService();
@@ -22,14 +22,10 @@ public class e_PostsUserIdCommentsTest {
     public void createCommentsTest() {
         response=callUser.SearchUserName("Samantha");
         int IdOfSearchUser= SearchUserService.id;
-        System.out.println("ıdofsearchUser: "+IdOfSearchUser);
+        System.out.println("IdOfSearchUser: "+IdOfSearchUser);
         response=postService.extractUserIdWhenPosts(IdOfSearchUser);
         int userIdOfSearchUser=PostService.userId;
         response= commentsService.Comments(userIdOfSearchUser);
         Assertions.assertTrue(response.statusCode() == 200);
-
-
-
-
     }
 }
