@@ -21,7 +21,7 @@ public class EmailCommentsTest {
     PostService postService=new PostService();
     CommentsService commentsService=new CommentsService();
 
-    @DisplayName(" Post UserId Test")
+    @DisplayName("Verify Emails on Comments")
     @Test
     @Tag("smoke")
     public void validateEmail() {

@@ -8,7 +8,7 @@ public class CommentsService extends TestBase {
     public Response Comments(int userId){
         Response response=spec().log().all()
                     .when()
-                    .get(BASEURI+"/post/"+userId+"/comments")
+                    .get(BASEURI+"/posts/"+userId+"/comments")
                     .then().log().all().extract().response();
         return response;
         }
