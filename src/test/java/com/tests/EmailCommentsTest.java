@@ -1,19 +1,27 @@
 package com.tests;
 
+import annotations.AzureTestCaseId;
+import annotations.AzureTestPlanSuitId;
 import com.apiServices.CommentsService;
 import com.apiServices.PostService;
 import com.apiServices.SearchUserService;
 import com.utilities.Helpers;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import settings.TestSettings;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Execution(ExecutionMode.CONCURRENT)
+@ExtendWith(TestSettings.class)
+@AzureTestPlanSuitId(17458)
 public class EmailCommentsTest {
 
     Response response;
@@ -24,6 +32,7 @@ public class EmailCommentsTest {
     @DisplayName("Verify Emails on Comments")
     @Test
     @Tag("smoke")
+    @AzureTestCaseId(13442)
     public void validateEmail() {
 
         response=callUser.SearchUserName("Samantha");

@@ -1,5 +1,6 @@
 package com.tests;
 
+import annotations.AzureTestCaseId;
 import annotations.AzureTestPlanSuitId;
 import com.apiServices.CommentsService;
 import com.apiServices.PostService;
@@ -27,6 +28,7 @@ public class CommentsTest {
     @DisplayName(" Comments Test")
     @Test
     @Tag("smoke")
+    @AzureTestCaseId(13444)
     public void createCommentsTest() {
         response=callUser.SearchUserName("Samantha");
         int IdOfSearchUser= SearchUserService.id;

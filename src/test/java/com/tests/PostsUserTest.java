@@ -1,13 +1,18 @@
 package com.tests;
 
+import annotations.AzureTestCaseId;
+import annotations.AzureTestPlanSuitId;
 import com.apiServices.PostService;
 import com.apiServices.SearchUserService;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import settings.TestSettings;
 
 
 /**
@@ -20,8 +25,11 @@ import org.junit.jupiter.api.Test;
  * 3-navigate to https://jsonplaceholder.typicode.com/posts+userId
  *
  */
+ @Execution(ExecutionMode.CONCURRENT)
+ @ExtendWith(TestSettings.class)
+ @AzureTestPlanSuitId(17458)
 
-public class PostsUserTest {
+ public class PostsUserTest {
     SearchUserService callUser = new SearchUserService();
     PostService postService=new PostService();
     Response response;
@@ -29,6 +37,8 @@ public class PostsUserTest {
     @DisplayName(" Post UserId Test")
     @Test
     @Tag("smoke")
+    @AzureTestCaseId(13441)
+
     public void getPostsTest() {
         response=callUser.SearchUserName("Samantha");
         int IdOfSearchUser= SearchUserService.id;
