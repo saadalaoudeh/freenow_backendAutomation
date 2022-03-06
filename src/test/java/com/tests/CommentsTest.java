@@ -13,11 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
-import settings.TestSettings;
 
-@Execution(ExecutionMode.CONCURRENT)
-@ExtendWith(TestSettings.class)
-@AzureTestPlanSuitId(17458)
+
 public class CommentsTest {
 
     SearchUserService callUser = new SearchUserService();
@@ -25,14 +22,13 @@ public class CommentsTest {
     CommentsService commentsService=new CommentsService();
     Response response;
 
-    @DisplayName(" Comments Test")
+    @DisplayName("Comments Test")
     @Test
     @Tag("smoke")
-    @AzureTestCaseId(13444)
-    public void createCommentsTest() {
+
+    public void getCommentsTest() {
         response=callUser.SearchUserName("Samantha");
         int IdOfSearchUser= SearchUserService.id;
-        System.out.println("IdOfSearchUser: "+IdOfSearchUser);
         response=postService.extractUserIdWhenPosts(IdOfSearchUser);
         int userIdOfSearchUser=PostService.userId;
         response= commentsService.Comments(userIdOfSearchUser);

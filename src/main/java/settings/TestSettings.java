@@ -14,8 +14,8 @@ import java.util.UUID;
 
 public class TestSettings implements TestExecutionExceptionHandler, BeforeTestExecutionCallback, BeforeAllCallback, AfterAllCallback, AfterTestExecutionCallback {
 
-    private static final String AZURE_BASE_URL = "https://dev.azure.com/.....";
-    private static final String PAT = "....";
+    private static final String AZURE_BASE_URL = "";
+    private static final String PAT = "";
     private static final int PLAN_ID = 7101;
     private static final HashMap<String, HashMap<Object, Object>> TEST_INFO = new HashMap<>();
     private static Long TEST_TIME;

@@ -17,7 +17,7 @@ public class PostService extends TestBase {
         return response;
     }
 
-    public Response createPostWithUserId(int userId) {
+    public Response getPostWithUserId(int userId) {
         Response response = spec().log().all().when().get(BASEURI+"/posts/"+userId)
                 .then().log().all().extract().response();
         return response;
